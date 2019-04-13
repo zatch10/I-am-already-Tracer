@@ -18,6 +18,15 @@ stepper2.setSpeed(100);
 Serial.begin(9600);
 }
 
+//calculate an offset for using the RTO values. 
+//lets say 3*RTO_x = pic_x and 4*RTO_y = pic_y and max_y = 500 and max_x = 500 -> these need to be the middle of the picture 
+//the stepper will calibrate to the center of the image
+//recieve pic_x or pic_y,
+//store x = 3*pic_x, store y = 5*pic_y
+//calculate offset by doing max_x - pic_x and for y
+//then loop that many times to move that many points with stepperx.step(x) and steppery.step(y)
+//will have to test out how to use delay to ensure this happens smoothly
+
 void loop() {
 
 int lr = analogRead(A0);
