@@ -3,6 +3,7 @@
 // change this to the number of steps on your motor
 #define STEPS 200
 //Purple:7;Blue:6;Green:4; Brown:2;
+//On motor: <motorwire:ard_wire> :: black:green; green:yellow; red:blue; blue:orange;
 // create an instance of the stepper class, specifying
 // the number of steps of the motor and the pins it's
 // attached to
