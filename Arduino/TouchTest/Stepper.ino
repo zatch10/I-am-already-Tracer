@@ -1,4 +1,4 @@
-#include <Stepper.h>
+/*#include <Stepper.h>
 
 // change this to the number of steps on your motor
 #define STEPS 200
@@ -17,15 +17,15 @@ void setup() {
   stepper.setSpeed(50);
   Serial.begin(9600);
 }
-
-void loop() {
+*/
+void move_step_x(int input) {
   
   // get the sensor value
-  int val = map(analogRead(0),0,1024,0,STEPS);
+  int val = map(input,0,3000,0,STEPS);
 
   // move a number of steps equal to the change in the
   // sensor reading
-  Serial.println(val-previous);
+  //Serial.println(val-previous);
   stepper.step(val - previous);
 
   // remember the previous value of the sensor

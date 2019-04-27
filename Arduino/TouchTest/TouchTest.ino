@@ -17,6 +17,8 @@
 #include <Wire.h>
 
 #include "Adafruit_STMPE610.h"
+#include <Stepper.h>
+#define STEPS 200
 
 // Pick one of three wiring options below!
 
@@ -24,10 +26,12 @@
 // SCL to I2C clock (#A5 on Uno) and SDA to I2C data (#A4 on Uno)
 // tie MODE to GND and POWER CYCLE (there is no reset pin)
 Adafruit_STMPE610 touch = Adafruit_STMPE610();
-
+Stepper stepper(STEPS, 2,4,6,7);
+int previous = 0;
 /******************/
 
 void setup() { 
+  stepper.setSpeed(100);
   Serial.begin(9600);
   Serial.println("Adafruit STMPE610 example");
   Serial.flush();
@@ -59,6 +63,7 @@ void loop() {
       Serial.print(y); Serial.print(", ");
       Serial.print(z);
       Serial.println(")");
+      move_step_x(y);
     }
     touch.writeRegister8(STMPE_INT_STA, 0xFF); // reset all ints, in this example unneeded depending in use
   }
