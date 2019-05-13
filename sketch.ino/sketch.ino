@@ -24,7 +24,7 @@ void setup() {
 
   // if using hardware SPI on an Uno #10 must be an output, remove line
   // if using software SPI or I2C
-  //pinMode(10, OUTPUT); -> (Vatsin's note: I am pretty sure this is not needed for I2C as I2C has all fixed pins...... Bik gai hai gormint, baith ke chutiya bana rahe hai humko madarchod ke bachche)
+  //pinMode(10, OUTPUT);
 
   // If using I2C you can select the I2C address (there are two options) by calling
   // touch.begin(0x41), the default, or touch.begin(0x44) if A0 is tied to 3.3V
